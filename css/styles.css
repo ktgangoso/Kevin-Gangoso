@@ -1,0 +1,417 @@
+/* Base styles */
+body {
+    @apply bg-gray-100 text-gray-800 font-sans;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+header {
+    @apply bg-white shadow-md;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+nav ul {
+    @apply flex flex-wrap space-x-4 md:space-x-6;
+}
+
+nav a {
+    @apply text-blue-500 hover:text-blue-700 transition duration-300;
+    font-size: 1rem;
+}
+
+section {
+    @apply p-4 md:p-8;
+    margin-top: 10px;
+}
+
+h1,
+h2,
+h3 {
+    @apply font-bold;
+}
+
+button {
+    @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300;
+}
+
+footer {
+    @apply bg-gray-800 text-white py-4 text-center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Animations */
+.fade-in {
+    @apply opacity-0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease;
+}
+
+.slide-up {
+    @apply transform translate-y-10 opacity-0;
+    animation: slideUp 0.5s forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    80% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-bounceIn {
+    animation: bounceIn 0.5s cubic-bezier(.68, -0.55, .27, 1.55);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header .container {
+        @apply flex-col items-start;
+    }
+
+    nav ul {
+        @apply flex-col space-x-0 space-y-2;
+    }
+
+    h1 {
+        @apply text-2xl;
+    }
+
+    section {
+        @apply p-2;
+    }
+
+    .max-w-lg {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        @apply text-xl;
+    }
+
+    h3 {
+        @apply text-lg;
+    }
+
+    button {
+        @apply py-1 px-2 text-sm;
+    }
+
+    section {
+        @apply p-1;
+    }
+}
+
+/* Smooth transition for dark mode */
+body,
+header,
+section,
+.bg-white,
+footer {
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* Dark mode styles */
+.dark body {
+    background-color: #1a202c;
+}
+
+.dark header {
+    background-color: #2d3748;
+}
+
+.dark section {
+    background-color: #1a202c;
+}
+
+.dark .bg-white {
+    background-color: #2d3748;
+}
+
+.dark button {
+    background-color: #3182ce;
+}
+
+.dark footer {
+    background-color: #1a202c;
+}
+
+.dark body,
+.dark header,
+.dark nav a,
+.dark section,
+.dark .bg-white,
+.dark button,
+.dark footer,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p,
+.dark li,
+.dark ul,
+.dark label,
+.dark input,
+.dark textarea {
+    color: #ffffff !important;
+}
+
+/* Sidebar nav for mobile */
+#sidebarNav {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-right: 2px solid #3b82f6;
+    transition: transform 0.4s cubic-bezier(.68, -0.55, .27, 1.55), background 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70vw;
+    max-width: 320px;
+    z-index: 50;
+    transform: translateX(-100%);
+    overflow-y: auto;
+    padding: 2rem 0;
+    display: block;
+}
+
+#sidebarNav.open {
+    transform: translateX(0);
+    animation: sidebarSlideIn 0.5s cubic-bezier(.68, -0.55, .27, 1.55);
+}
+
+@keyframes sidebarSlideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#sidebarNav ul {
+    margin-top: 80px;
+    padding-left: 0;
+}
+
+#sidebarNav ul li {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    list-style: none;
+}
+
+#sidebarNav ul li a {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    display: block;
+    color: #2563eb;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+#sidebarNav ul li a:hover {
+    background: #2563eb;
+    color: #fff;
+    transform: translateX(8px) scale(1.05);
+}
+
+/* Overlay for sidebar */
+#sidebarOverlay {
+    display: none;
+}
+
+#sidebarOverlay.active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 40;
+}
+
+/* Responsive: Hide sidebar on desktop, show as horizontal nav */
+@media (min-width: 768px) {
+    #sidebarNav {
+        position: static !important;
+        transform: none !important;
+        height: auto !important;
+        width: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-right: none !important;
+        padding: 0 !important;
+        display: block !important;
+        overflow: visible !important;
+        animation: none !important;
+    }
+
+    #sidebarNav ul {
+        margin-top: 0 !important;
+        @apply flex-row space-x-6 mt-0;
+    }
+
+    #sidebarNav ul li {
+        margin-bottom: 0 !important;
+        text-align: center;
+        display: inline-block;
+    }
+
+    #sidebarNav ul li a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        color: #2563eb;
+        background: transparent;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    #sidebarNav ul li a:hover {
+        background: #2563eb;
+        color: #fff;
+        transform: none;
+    }
+
+    #sidebarOverlay {
+        display: none !important;
+    }
+}
+
+/* Dark mode sidebar */
+.dark #sidebarNav {
+    background: rgba(30, 41, 59, 0.95);
+    border-right: 2px solid #60a5fa;
+}
+
+.dark #sidebarNav ul li a {
+    color: #60a5fa;
+}
+
+.dark #sidebarNav ul li a:hover {
+    background: #60a5fa;
+    color: #1e293b;
+}
+
+
+/* Skill cards animations */
+.skill-card {
+    perspective: 1000px;
+}
+
+.skill-icon {
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.2) translateY(-5px);
+}
+
+/* Progress bar animation */
+@keyframes fillWidth {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.animate-width {
+    animation: fillWidth 1.5s ease-out forwards;
+}
+
+/* Hover effects */
+.skill-card .skill-level {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-level {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Background transitions */
+.bg-gradient-to-br {
+    transition: background-image 0.4s ease;
+}
+
+/* Dark mode background adjustments */
+.dark .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right,
+            rgba(30, 58, 138, 0.1),
+            rgba(88, 28, 135, 0.1));
+}
+
+/* Smooth transitions for all background changes */
+*,
+*::before,
+*::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+}
+
+/* Custom animations */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-zoomIn {
+    animation: zoomIn 0.6s ease-out;
+}

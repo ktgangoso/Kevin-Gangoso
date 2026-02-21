@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+    <header id="header" class="bg-white shadow py-6 mb-8 animate-fadeIn">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-800">Kevin</h1>
+            <!-- Hamburger button for mobile -->
+            <button id="navToggle" class="md:hidden text-2xl text-gray-700 focus:outline-none">&#9776;</button>
+            <!-- Sidebar nav -->
+            <nav id="sidebarNav"
+                class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 md:static md:translate-x-0 md:w-auto md:bg-transparent md:shadow-none">
+                <ul class="flex flex-col md:flex-row md:space-x-6 text-gray-600 font-medium mt-20 md:mt-0">
+                    <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+                    <li><a href="#about" class="hover:text-blue-500">About</a></li>
+                    <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+                    <li><a href="#experience" class="hover:text-blue-500">Experience</a></li>
+                </ul>
+            </nav>
+            <button id="darkModeToggle"
+                class="ml-4 px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300">
+                🌙 Dark Mode
+            </button>
+        </div>
+    </header>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="container mx-auto px-4 py-16 text-center animate-fadeIn relative overflow-hidden">
+            <!-- Background decoration -->
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-50/80 to-purple-50/80 dark:from-blue-900/10 dark:to-purple-900/10 backdrop-blur-sm transition-colors duration-300 -z-10">
+            </div>
+
+            <!-- Profile Picture with animation -->
+            <div class="flex justify-center mb-8 relative">
+                <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full transform animate-pulse"></div>
+                <img src="assets/kevin.jpg" alt="Kevin"
+                    class="w-40 h-40 shadow-xl object-cover animate-zoomIn relative z-10" style="border-radius: 30px;">
+            </div>
+
+            <!-- Main content -->
+            <div class="max-w-3xl mx-auto">
+                <h1
+                    class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Welcome to My Portfolio
+                </h1>
+                <p class="text-l text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
+                    Job Experience
+                </p>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    Web Developer | IT Service Desk Analyst | Network Support
+                </p>
+
+                <!-- Quick stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-4 mb-10 mx-auto max-w-2xl">
+                    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                        <div class="text-3xl font-bold text-blue-500">1+</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+                    </div>
+                    <div class="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                        <div class="text-3xl font-bold text-blue-500">12+</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Technical Skills</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#experience"
+                        class="px-8 py-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg font-medium border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transform hover:-translate-y-0.5 transition-all duration-300">
+                        View Experience
+                    </a>
+                    <a href="assets/resume.pdf" download="KevinGangoso_Resume.pdf"
+                        class="px-8 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                        <i class="fas fa-file-download"></i> Download My Resume
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-10 flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/kevin-gangoso-37b9102aa/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-600 hover:text-blue-500 transition-colors duration-300 cursor-pointer transform hover:scale-110">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/ktgangoso" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-300 cursor-pointer transform hover:scale-110">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
