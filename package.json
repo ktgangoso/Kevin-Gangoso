@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "description": "A simple professional portfolio project using HTML, CSS, JavaScript, and Tailwind/Bootstrap.",
+  "main": "src/js/main.js",
+  "scripts": {
+    "build": "tailwindcss build src/css/styles.css -o dist/styles.css",
+    "start": "live-server src"
+  },
+  "keywords": [
+    "portfolio",
+    "web",
+    "html",
+    "css",
+    "javascript",
+    "tailwind",
+    "bootstrap"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^2.2.19",
+    "bootstrap": "^5.1.3"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
